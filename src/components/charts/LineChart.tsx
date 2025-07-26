@@ -17,8 +17,8 @@ const LineChartComponent: React.FC<LineChartComponentProps> = ({ data, title }) 
           <XAxis dataKey="month" />
           <YAxis />
           <Tooltip />
-          <Line type="monotone" dataKey="ingresos" stroke="#8884d8" strokeWidth={2} />
-          <Line type="monotone" dataKey="usuarios" stroke="#82ca9d" strokeWidth={2} />
+          <Line type="monotone" dataKey="energia" stroke="#ff6b35" strokeWidth={2} />
+          <Line type="monotone" dataKey="eficiencia" stroke="#1a1a1a" strokeWidth={2} />
         </LineChart>
       </ResponsiveContainer>
     </div>

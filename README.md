@@ -1,15 +1,15 @@
-# Análisis de Datos - Dashboard Frontend
+# Cygger - Dashboard Industrial
 
-Una aplicación web moderna para análisis y visualización de datos construida con React, TypeScript y Vite.
+Una aplicación web moderna para monitoreo y análisis de datos industriales construida con React, TypeScript y Vite.
 
 ## 🚀 Características
 
-- **Autenticación Simulada**: Login falso para demostración
-- **Dashboard Interactivo**: Panel de control con métricas y visualizaciones
-- **Visualizaciones de Datos**: Gráficas de barras, líneas y circular
-- **Datos Tabulares**: Tabla interactiva con información detallada
-- **Diseño Responsivo**: Adaptable a diferentes tamaños de pantalla
-- **Métricas en Tiempo Real**: Tarjetas de métricas con indicadores de cambio
+- **Autenticación Segura**: Sistema de login para acceso al dashboard
+- **Monitoreo Industrial**: Panel de control especializado para datos de producción
+- **Visualizaciones Avanzadas**: Gráficas de producción, eficiencia y fallos
+- **Datos en Tiempo Real**: Tabla con información detallada de máquinas y operadores
+- **Análisis de Fallos**: Categorización y seguimiento de tipos de fallas
+- **Métricas de Rendimiento**: KPIs de producción, eficiencia y consumo energético
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -53,21 +53,21 @@ src/
 
 ### Dashboard Principal
 - **Panel Izquierdo (Datos)**:
-  - Tabla con datos de productos
-  - Estadísticas resumidas
-  - Información de categorías
+  - Tabla con datos de producción en tiempo real
+  - Estadísticas de máquinas y operadores
+  - Información de turnos y productos
   
 - **Panel Derecho (Visualizaciones)**:
-  - Gráfica de barras: Ventas y usuarios por mes
-  - Gráfica de líneas: Tendencia de ingresos
-  - Gráfica circular: Distribución por categorías
-  - Panel de insights clave
+  - Gráfica de barras: Producción y eficiencia por mes
+  - Gráfica de líneas: Consumo energético y tendencias
+  - Gráfica circular: Distribución de tipos de fallos
+  - Panel de insights industriales
 
 ### Métricas Destacadas
-- Usuarios totales con porcentaje de cambio
-- Ventas del mes
-- Tasa de conversión
-- Ingresos totales
+- Producción total con indicadores de cambio
+- Eficiencia promedio del sistema
+- Fallos detectados y su evolución
+- Consumo energético total
 
 ## 🚀 Instalación y Uso
 

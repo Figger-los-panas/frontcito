@@ -17,8 +17,8 @@ const BarChartComponent: React.FC<BarChartComponentProps> = ({ data, title }) =>
           <XAxis dataKey="month" />
           <YAxis />
           <Tooltip />
-          <Bar dataKey="ventas" fill="#8884d8" />
-          <Bar dataKey="usuarios" fill="#82ca9d" />
+          <Bar dataKey="produccion" fill="#ff6b35" />
+          <Bar dataKey="eficiencia" fill="#1a1a1a" />
         </BarChart>
       </ResponsiveContainer>
     </div>

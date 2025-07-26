@@ -1,5 +1,5 @@
 import React from 'react';
-import { TrendingUp, TrendingDown, Users, Target, DollarSign } from 'lucide-react';
+import { TrendingUp, TrendingDown, Users, Target, DollarSign, Package, AlertTriangle, Zap } from 'lucide-react';
 import type { MetricCard as MetricCardType } from '../types/dashboard';
 
 interface MetricCardProps {
@@ -12,6 +12,9 @@ const getIcon = (iconName: string) => {
     'trending-up': TrendingUp,
     'target': Target,
     'dollar-sign': DollarSign,
+    'package': Package,
+    'alert-triangle': AlertTriangle,
+    'zap': Zap,
   };
   
   const IconComponent = icons[iconName as keyof typeof icons] || TrendingUp;

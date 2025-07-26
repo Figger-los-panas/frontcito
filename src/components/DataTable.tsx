@@ -1,8 +1,8 @@
 import React from 'react';
-import type { DataPoint } from '../types/dashboard';
+import type { IndustrialDataPoint } from '../types/dashboard';
 
 interface DataTableProps {
-  data: DataPoint[];
+  data: IndustrialDataPoint[];
   title: string;
 }
 
@@ -14,25 +14,35 @@ const DataTable: React.FC<DataTableProps> = ({ data, title }) => {
         <table className="data-table">
           <thead>
             <tr>
-              <th>Nombre</th>
-              <th>Valor</th>
-              <th>Categoría</th>
-              <th>Fecha</th>
-              <th>Porcentaje</th>
+              <th>Máquina</th>
+              <th>Operador</th>
+              <th>Producto</th>
+              <th>Turno</th>
+              <th>Producción</th>
+              <th>Eficiencia</th>
+              <th>Fallos</th>
+              <th>Timestamp</th>
             </tr>
           </thead>
           <tbody>
             {data.map((item) => (
               <tr key={item.id}>
-                <td className="name-cell">{item.name}</td>
-                <td className="value-cell">${item.value.toLocaleString()}</td>
+                <td className="name-cell">{item.maquina_id}</td>
+                <td className="operator-cell">{item.operador_id}</td>
+                <td className="product-cell">{item.producto_id}</td>
                 <td>
-                  <span className={`category-badge category-${item.category.toLowerCase().replace(/\s+/g, '-')}`}>
-                    {item.category}
+                  <span className={`turno-badge turno-${item.turno.toLowerCase()}`}>
+                    {item.turno}
                   </span>
                 </td>
-                <td className="date-cell">{new Date(item.date).toLocaleDateString('es-ES')}</td>
-                <td className="percentage-cell">{item.percentage}%</td>
+                <td className="value-cell">{item.cantidad_producida}</td>
+                <td className="percentage-cell">{item.eficiencia_porcentual?.toFixed(1)}%</td>
+                <td className="failure-cell">
+                  <span className={`status-badge ${item.fallo_detectado === 'Sí' ? 'failure' : 'success'}`}>
+                    {item.fallo_detectado}
+                  </span>
+                </td>
+                <td className="date-cell">{new Date(item.timestamp).toLocaleString('es-ES')}</td>
               </tr>
             ))}
           </tbody>

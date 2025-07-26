@@ -31,7 +31,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
     <div className="login-container">
       <div className="login-card">
         <div className="login-header">
-          <h1>Análisis de Datos</h1>
+          <h1>Cygger</h1>
           <p>Accede a tu dashboard de análisis</p>
         </div>
         
@@ -64,10 +64,6 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
             Iniciar Sesión
           </button>
         </form>
-        
-        <div className="login-demo">
-          <p><small>Demo: Usa cualquier usuario y contraseña</small></p>
-        </div>
       </div>
     </div>
   );
