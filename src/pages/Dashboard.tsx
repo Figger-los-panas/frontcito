@@ -1,5 +1,8 @@
 import { LogOut, BarChart3 } from 'lucide-react';
+import OptimalCombinations from '../components/OptimalCombinations';
 import TemperatureMonitor from '../components/TemperatureMonitor';
+import HistoricalAnalysis from '../components/HistoricalAnalysis';
+import PredictionAnalysis from '../components/PredictionAnalysis';
 import ApiStatus from '../components/ApiStatus';
 import { useTemperatureData } from '../hooks/useTemperatureData';
 import '../styles/Dashboard.css';
@@ -32,7 +35,12 @@ const Dashboard = ({ onLogout }: DashboardProps) => {
 
       {/* Main Content */}
       <div className="dashboard-content">
-        {/* Temperature Monitor - Panel Principal */}
+        {/* Optimal Combinations - Panel Principal */}
+        <div className="main-panel">
+          <OptimalCombinations />
+        </div>
+
+        {/* Temperature Monitor - Panel de Monitoreo */}
         <div className="main-panel">
           <div className="panel-header">
             <BarChart3 size={20} />
@@ -50,6 +58,16 @@ const Dashboard = ({ onLogout }: DashboardProps) => {
               <p>El dashboard está listo para mostrar datos de temperatura cuando tu servidor API esté disponible en <code>localhost:8000</code></p>
             </div>
           )}
+        </div>
+
+        {/* Historical Analysis Panel */}
+        <div className="analysis-panel">
+          <HistoricalAnalysis period="daily" />
+        </div>
+
+        {/* Prediction Analysis Panel */}
+        <div className="analysis-panel">
+          <PredictionAnalysis horizon={24} />
         </div>
       </div>
     </div>

@@ -112,14 +112,11 @@ curl -X POST "http://localhost:8000/api/v1/temperature/" \
 src/
 ├── components/           # Componentes reutilizables
 │   ├── Login.tsx        # Autenticación
-│   ├── MetricCard.tsx   # Tarjetas de KPIs
-│   ├── DataTable.tsx    # Tabla de datos Control INGE LEAN
+│   ├── OptimalCombinations.tsx # Visor de combinaciones óptimas
 │   ├── TemperatureMonitor.tsx # Monitoreo de temperatura API
-│   ├── ApiStatus.tsx    # Estado de conexión API
-│   └── charts/          # Componentes de visualización
-│       ├── BarChart.tsx
-│       ├── LineChart.tsx
-│       └── PieChart.tsx
+│   ├── HistoricalAnalysis.tsx # Análisis histórico
+│   ├── PredictionAnalysis.tsx # Análisis de predicciones
+│   └── ApiStatus.tsx    # Estado de conexión API
 ├── hooks/               # Custom React hooks
 │   └── useTemperatureData.ts # Hook para datos de temperatura
 ├── services/            # Servicios de API
@@ -128,12 +125,13 @@ src/
 │   └── Dashboard.tsx    # Dashboard principal
 ├── types/               # Definiciones TypeScript
 │   └── dashboard.ts     # Interfaces de datos Control INGE LEAN y API
-├── data/                # Mock data y utilidades
-│   └── mockData.ts      # Datos de ejemplo
 ├── styles/              # Estilos CSS modulares
 │   ├── Login.css
 │   ├── Dashboard.css
-│   └── TemperatureMonitor.css
+│   ├── TemperatureMonitor.css
+│   ├── HistoricalAnalysis.css
+│   ├── PredictionAnalysis.css
+│   └── OptimalCombinations.css
 └── App.tsx              # Componente raíz
 ```
 
