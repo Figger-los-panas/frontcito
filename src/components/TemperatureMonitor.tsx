@@ -25,6 +25,18 @@ const TemperatureMonitor = ({ limit = 100 }: TemperatureMonitorProps) => {
     }
   };
 
+  const generateOperatorId = (machineId: string): string => {
+    // Generar un operador consistente basado en el machine_id
+    const operatorNumber = (parseInt(machineId.replace(/\D/g, '')) || 1) % 20 + 1;
+    return operatorNumber.toString().padStart(2, '0');
+  };
+
+  const formatMachineId = (machineId: string): string => {
+    // Extraer solo el número y formatearlo a dos dígitos
+    const machineNumber = parseInt(machineId.replace(/\D/g, '')) || 1;
+    return machineNumber.toString().padStart(2, '0');
+  };
+
   if (loading) {
     return (
       <div className="temperature-monitor loading">
@@ -130,6 +142,7 @@ const TemperatureMonitor = ({ limit = 100 }: TemperatureMonitorProps) => {
 
       <div className="temperature-list">
         <div className="list-header">
+          <span>Operador</span>
           <span>Máquina</span>
           <span>Temperatura</span>
           <span>Estado</span>
@@ -138,7 +151,15 @@ const TemperatureMonitor = ({ limit = 100 }: TemperatureMonitorProps) => {
         <div className="list-body">
           {temperatureData.slice(0, 10).map((item: TemperatureDataPoint) => (
             <div key={item.id} className="temperature-item">
-              <span className="machine-id">{item.machine_id}</span>
+              <span className="operator-id">
+                {item.operator_id ? 
+                  item.operator_id.replace(/\D/g, '').padStart(2, '0') : 
+                  generateOperatorId(item.machine_id)
+                }
+              </span>
+              <span className="machine-id">
+                {formatMachineId(item.machine_id)}
+              </span>
               <span 
                 className="temperature-value"
                 style={{ color: getTemperatureColor(item.temperature) }}

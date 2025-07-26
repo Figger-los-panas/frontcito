@@ -163,7 +163,7 @@
 
 .list-header {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1.5fr;
+  grid-template-columns: 0.8fr 1fr 1fr 1fr 1.5fr;
   gap: 1rem;
   padding: 1rem 1.5rem;
   background: #f7fafc;
@@ -179,7 +179,7 @@
 
 .temperature-item {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1.5fr;
+  grid-template-columns: 0.8fr 1fr 1fr 1fr 1.5fr;
   gap: 1rem;
   padding: 0.75rem 1.5rem;
   border-bottom: 1px solid #f1f5f9;
@@ -191,10 +191,28 @@
   background: #f8fafc;
 }
 
-.machine-id {
-  font-weight: 500;
-  color: #2d3748;
+.operator-id {
+  font-weight: 600;
+  color: #ff6b35;
   font-family: monospace;
+  font-size: 0.8rem;
+  background: #fff5f1;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  border: 1px solid #fed7c7;
+}
+
+.machine-id {
+  font-weight: 600;
+  color: #1a365d;
+  font-family: monospace;
+  font-size: 0.8rem;
+  background: #f0f4f8;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  border: 1px solid #cbd5e0;
 }
 
 .temperature-value {
@@ -248,14 +266,14 @@
   
   .list-header,
   .temperature-item {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.8fr 1fr 1fr;
     gap: 0.5rem;
   }
   
-  .list-header span:nth-child(3),
   .list-header span:nth-child(4),
-  .temperature-item span:nth-child(3),
-  .temperature-item span:nth-child(4) {
+  .list-header span:nth-child(5),
+  .temperature-item span:nth-child(4),
+  .temperature-item span:nth-child(5) {
     display: none;
   }
   
