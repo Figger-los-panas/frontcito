@@ -1,35 +1,37 @@
-# 🏭 Cygger - Dashboard Industrial
+# 🌡️ Cygger - Monitor de Temperatura Control INGE LEAN
 
-Una aplicación web moderna y optimizada para monitoreo y análisis de datos industriales en tiempo real, construida con React 19, TypeScript y Vite.
+Una aplicación web moderna y optimizada para monitoreo de temperatura Control INGE LEAN en tiempo real, construida con React 19, TypeScript y Vite.️ Cygger - Monitor de Temperatura Industrial
+
+Una aplicación web moderna y optimizada para monitoreo de temperatura industrial en tiempo real, construida con React 19, TypeScript y Vite.
 
 ## ✨ Características Principales
 
 - 🔐 **Sistema de Autenticación** - Acceso seguro al dashboard
-- 📊 **Monitoreo en Tiempo Real** - Visualización de datos de producción industrial
-- 📈 **Analíticas Avanzadas** - Gráficas interactivas de rendimiento y eficiencia
-- ⚠️ **Gestión de Fallos** - Detección y categorización de fallas del sistema
-- 🎯 **KPIs Industriales** - Métricas clave de producción y consumo energético
+- 🌡️ **Monitoreo de Temperatura** - Visualización en tiempo real de sensores Control INGE LEAN
+- � **Sistema de Alertas** - Detección automática de temperaturas críticas
+- 📊 **Estadísticas en Vivo** - Análisis de datos en tiempo real
+- 🔗 **Integración API** - Conexión directa con backend de sensores
 - 📱 **Diseño Responsivo** - Adaptado para todos los dispositivos
 
 ## 🛠️ Stack Tecnológico
 
 - **Frontend**: React 19 con TypeScript
 - **Build Tool**: Vite 7.0
-- **Charts**: Recharts para visualizaciones
 - **Icons**: Lucide React
-- **Styling**: CSS3 con variables personalizadas
-- **Linting**: ESLint con configuración TypeScript
+- **Styling**: CSS3 modular
+- **API**: Fetch nativo con manejo de errores
+- **Linting**: ESLint con configuración TypeScript estricta
 
 ## 🎨 Diseño & UX
 
 - **Esquema de Colores**: Naranja (#ff6b35), Negro (#1a1a1a), Blanco (#ffffff)
-- **Branding**: Cygger - Soluciones de monitoreo industrial
+- **Branding**: Cygger - Soluciones de monitoreo Control INGE LEAN
 - **Tipografía**: Inter con fallbacks del sistema
-- **Layout**: Grid responsivo optimizado para datos industriales
+- **Layout**: Diseño centrado optimizado para datos de temperatura
 
 ## 📊 Datos Soportados
 
-La aplicación procesa y visualiza los siguientes tipos de datos industriales:
+La aplicación procesa y visualiza los siguientes tipos de datos Control INGE LEAN:
 
 ### Sensores y Máquinas
 - `timestamp` - Marca temporal del registro
@@ -57,6 +59,7 @@ La aplicación procesa y visualiza los siguientes tipos de datos industriales:
 ### Requisitos Previos
 - Node.js 18+ y npm
 - Git
+- **Servidor API** ejecutándose en `http://localhost:8000` (para datos de temperatura en tiempo real)
 
 ### Configuración Local
 ```bash
@@ -77,6 +80,32 @@ npm run build
 npm run preview
 ```
 
+### 🌡️ Integración con API de Temperatura
+
+El dashboard ahora incluye monitoreo de temperatura en tiempo real mediante conexión con una API externa:
+
+**Endpoint:** `POST http://localhost:8000/api/v1/temperature/`
+
+**Formato de petición:**
+```bash
+curl -X POST "http://localhost:8000/api/v1/temperature/" \
+  -H "Content-Type: application/json" \
+  -d '{"limit": 100}'
+```
+
+**Características de la integración:**
+- 🔄 Actualización automática de datos
+- 🚨 Alertas de temperatura crítica (>80°C)
+- ⚠️ Avisos de temperatura elevada (>70°C)
+- 📊 Estadísticas en tiempo real (promedio, máxima, críticas)
+- 🔗 Indicador de estado de conexión con la API
+- 📱 Interfaz responsive para monitoreo móvil
+
+**Estados de temperatura:**
+- 🟢 **Normal**: < 70°C
+- 🟡 **Alerta**: 70°C - 80°C  
+- 🔴 **Crítico**: > 80°C
+
 ## 📁 Arquitectura del Proyecto
 
 ```
@@ -84,20 +113,27 @@ src/
 ├── components/           # Componentes reutilizables
 │   ├── Login.tsx        # Autenticación
 │   ├── MetricCard.tsx   # Tarjetas de KPIs
-│   ├── DataTable.tsx    # Tabla de datos industriales
+│   ├── DataTable.tsx    # Tabla de datos Control INGE LEAN
+│   ├── TemperatureMonitor.tsx # Monitoreo de temperatura API
+│   ├── ApiStatus.tsx    # Estado de conexión API
 │   └── charts/          # Componentes de visualización
 │       ├── BarChart.tsx
 │       ├── LineChart.tsx
 │       └── PieChart.tsx
+├── hooks/               # Custom React hooks
+│   └── useTemperatureData.ts # Hook para datos de temperatura
+├── services/            # Servicios de API
+│   └── api.ts          # Cliente HTTP para comunicación con backend
 ├── pages/               # Páginas principales
 │   └── Dashboard.tsx    # Dashboard principal
 ├── types/               # Definiciones TypeScript
-│   └── dashboard.ts     # Interfaces de datos industriales
+│   └── dashboard.ts     # Interfaces de datos Control INGE LEAN y API
 ├── data/                # Mock data y utilidades
 │   └── mockData.ts      # Datos de ejemplo
 ├── styles/              # Estilos CSS modulares
 │   ├── Login.css
-│   └── Dashboard.css
+│   ├── Dashboard.css
+│   └── TemperatureMonitor.css
 └── App.tsx              # Componente raíz
 ```
 
@@ -108,6 +144,13 @@ src/
 - **Eficiencia Promedio**: Rendimiento del sistema
 - **Fallos Detectados**: Incidencias con evolución temporal
 - **Consumo Energético**: Monitoreo de recursos
+
+### 🌡️ Monitoreo de Temperatura en Tiempo Real
+- **Conexión API**: Integración con endpoint de temperatura
+- **Estados Visuales**: Normal, Alerta y Crítico
+- **Estadísticas Live**: Promedio, máxima y conteo de críticas
+- **Lista Detallada**: Últimas 10 lecturas con timestamps
+- **Indicador de Conectividad**: Estado de la API en tiempo real
 
 ### Visualizaciones
 - **Gráfica de Barras**: Producción y eficiencia mensual
@@ -168,8 +211,8 @@ Este proyecto está bajo la licencia MIT. Ver `LICENSE` para más detalles.
 
 ## 👨‍💻 Desarrollado por
 
-**Figger-los-panas** - Soluciones tecnológicas industriales
+**Figger-los-panas** - Soluciones tecnológicas Control INGE LEAN
 
 ---
 
-🔥 **Cygger** - Transformando datos industriales en insights accionables
+🔥 **Cygger** - Transformando datos Control INGE LEAN en insights accionables

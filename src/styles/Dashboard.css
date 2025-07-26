@@ -115,19 +115,45 @@
 /* Dashboard Content */
 .dashboard-content {
   padding: 0 2rem 2rem 2rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  display: flex;
+  justify-content: center;
   min-height: calc(100vh - 200px);
 }
 
-.left-panel,
-.right-panel {
+.main-panel {
   background: white;
   border-radius: 0.75rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   border: 1px solid #e2e8f0;
   overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.no-data-message {
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #4a5568;
+}
+
+.no-data-message h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  color: #2d3748;
+}
+
+.no-data-message p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.no-data-message code {
+  background: #e2e8f0;
+  color: #2d3748;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
 }
 
 .panel-header {
@@ -243,7 +269,7 @@
   color: #4a5568;
 }
 
-/* New industrial styles */
+/* New Control INGE LEAN styles */
 .turno-badge {
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
@@ -325,11 +351,166 @@
 }
 
 /* Charts Panel */
+.temperature-section {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
 .charts-grid {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+/* API Status Component */
+.api-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.api-status.connected {
+  background: #c6f6d5;
+  color: #2f855a;
+  border: 1px solid #9ae6b4;
+}
+
+.api-status.disconnected {
+  background: #fed7d7;
+  color: #c53030;
+  border: 1px solid #feb2b2;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.status-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.error-detail {
+  font-size: 0.75rem;
+  margin: 0;
+  color: #e53e3e;
+}
+
+.connection-info {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: #744210;
+  background: #faf089;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+/* API Demo Component */
+.api-demo {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.demo-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: #2d3748;
+}
+
+.demo-header h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.demo-description {
+  margin-bottom: 1rem;
+  color: #4a5568;
+  font-size: 0.875rem;
+}
+
+.command-container {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.command-code {
+  background: #1a202c;
+  color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  overflow-x: auto;
+  margin: 0;
+  padding-right: 3rem;
+}
+
+.copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: #4a5568;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.copy-button:hover {
+  background: #2d3748;
+}
+
+.demo-instructions,
+.demo-features {
+  margin-bottom: 1rem;
+}
+
+.demo-instructions h5,
+.demo-features h5 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.demo-instructions ol,
+.demo-features ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.demo-instructions li,
+.demo-features li {
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  color: #4a5568;
+}
+
+.demo-instructions code {
+  background: #e2e8f0;
+  color: #2d3748;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+  font-size: 0.75rem;
 }
 
 .chart-item {
@@ -380,16 +561,6 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
-  .dashboard-content {
-    grid-template-columns: 1fr;
-  }
-  
-  .metrics-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-}
-
 @media (max-width: 768px) {
   .dashboard-header {
     flex-direction: column;
@@ -399,14 +570,9 @@
   
   .dashboard-content {
     padding: 1rem;
-    gap: 1rem;
   }
   
-  .metrics-section {
-    padding: 1rem;
-  }
-  
-  .metrics-grid {
-    grid-template-columns: 1fr;
+  .main-panel {
+    margin: 0;
   }
 }
