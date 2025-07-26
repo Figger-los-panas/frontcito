@@ -57,6 +57,27 @@ export interface OptimalCombination {
   readonly timestamp: string;
 }
 
+// Tipos para correlación Spearman
+export interface SpearmanCorrelation {
+  readonly variable1: string;
+  readonly variable2: string;
+  readonly correlation_coefficient: number;
+  readonly p_value: number;
+  readonly significance: 'high' | 'medium' | 'low' | 'none';
+  readonly interpretation: string;
+}
+
+export interface SpearmanAnalysisResponse {
+  readonly analysis_timestamp: string;
+  readonly total_variables: number;
+  readonly correlations: SpearmanCorrelation[];
+  readonly summary: {
+    readonly strongest_positive: SpearmanCorrelation | null;
+    readonly strongest_negative: SpearmanCorrelation | null;
+    readonly significant_correlations_count: number;
+  };
+}
+
 // Tipos para API responses
 export interface ApiResponse<T> {
   readonly data: T[];

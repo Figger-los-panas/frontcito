@@ -3,6 +3,7 @@ import OptimalCombinations from '../components/OptimalCombinations';
 import TemperatureMonitor from '../components/TemperatureMonitor';
 import HistoricalAnalysis from '../components/HistoricalAnalysis';
 import CombinationsAnalysis from '../components/PredictionAnalysis';
+import SpearmanAnalysis from '../components/SpearmanAnalysis';
 import ApiStatus from '../components/ApiStatus';
 import { useTemperatureData } from '../hooks/useTemperatureData';
 import '../styles/Dashboard.css';
@@ -68,6 +69,11 @@ const Dashboard = ({ onLogout }: DashboardProps) => {
         {/* Optimal Combinations Analysis Panel */}
         <div className="analysis-panel">
           <CombinationsAnalysis />
+        </div>
+
+        {/* Spearman Correlation Analysis Panel */}
+        <div className="analysis-panel">
+          <SpearmanAnalysis />
         </div>
       </div>
     </div>

@@ -1,5 +1,12 @@
 // Servicio para comunicación con la API de Cygger
-import type { TemperatureDataPoint, ApiResponse, HistoricalAnalysis, PredictionAnalysis, OptimalCombination } from '../types/dashboard';
+import type { 
+  TemperatureDataPoint, 
+  ApiResponse, 
+  HistoricalAnalysis, 
+  PredictionAnalysis, 
+  OptimalCombination,
+  SpearmanAnalysisResponse 
+} from '../types/dashboard';
 
 const API_BASE_URL = 'http://localhost:8000/api/v1';
 
@@ -73,6 +80,21 @@ class ApiService {
 
   async getOptimalCombinations(): Promise<OptimalCombination[]> {
     const response = await fetch(`${API_BASE_URL}/combinations`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`API Error: ${response.status} ${response.statusText}`);
+    }
+
+    return await response.json();
+  }
+
+  async getSpearmanCorrelation(): Promise<SpearmanAnalysisResponse> {
+    const response = await fetch(`${API_BASE_URL}/spearman`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
