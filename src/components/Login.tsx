@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, type FormEvent, type ChangeEvent } from 'react';
 import { Lock, User } from 'lucide-react';
 import '../styles/Login.css';
 
@@ -6,25 +6,30 @@ interface LoginProps {
   onLogin: () => void;
 }
 
-const Login: React.FC<LoginProps> = ({ onLogin }) => {
-  const [formData, setFormData] = useState({
+interface FormData {
+  username: string;
+  password: string;
+}
+
+const Login = ({ onLogin }: LoginProps) => {
+  const [formData, setFormData] = useState<FormData>({
     username: '',
     password: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Login falso - cualquier credencial es válida
-    if (formData.username && formData.password) {
+    if (formData.username.trim() && formData.password.trim()) {
       onLogin();
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   return (

@@ -1,27 +1,26 @@
-import React from 'react';
-import { TrendingUp, TrendingDown, Users, Target, DollarSign, Package, AlertTriangle, Zap } from 'lucide-react';
+import { TrendingUp, TrendingDown, Users, Target, DollarSign, Package, AlertTriangle, Zap, type LucideIcon } from 'lucide-react';
 import type { MetricCard as MetricCardType } from '../types/dashboard';
 
 interface MetricCardProps {
   metric: MetricCardType;
 }
 
+const iconMap: Record<string, LucideIcon> = {
+  'users': Users,
+  'trending-up': TrendingUp,
+  'target': Target,
+  'dollar-sign': DollarSign,
+  'package': Package,
+  'alert-triangle': AlertTriangle,
+  'zap': Zap,
+} as const;
+
 const getIcon = (iconName: string) => {
-  const icons = {
-    'users': Users,
-    'trending-up': TrendingUp,
-    'target': Target,
-    'dollar-sign': DollarSign,
-    'package': Package,
-    'alert-triangle': AlertTriangle,
-    'zap': Zap,
-  };
-  
-  const IconComponent = icons[iconName as keyof typeof icons] || TrendingUp;
+  const IconComponent = iconMap[iconName] || TrendingUp;
   return <IconComponent size={24} />;
 };
 
-const MetricCard: React.FC<MetricCardProps> = ({ metric }) => {
+const MetricCard = ({ metric }: MetricCardProps) => {
   const isPositive = metric.change >= 0;
   
   return (

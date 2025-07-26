@@ -1,55 +1,55 @@
-// Tipos para datos industriales
+// Tipos para datos industriales de Cygger
 export interface IndustrialDataPoint {
-  id: string;
-  timestamp: string;
-  turno: string;
-  operador_id: string;
-  maquina_id: string;
-  producto_id: string;
-  temperatura?: number;
-  vibracion?: number;
-  humedad?: number;
-  tiempo_ciclo?: number;
-  fallo_detectado: string;
-  tipo_fallo?: string;
-  cantidad_producida: number;
-  unidades_defectuosas: number;
-  eficiencia_porcentual?: number;
-  consumo_energia?: number;
-  paradas_programadas: number;
-  paradas_imprevistas: number;
-  observaciones?: string;
+  readonly id: string;
+  readonly timestamp: string;
+  readonly turno: 'Mañana' | 'Tarde' | 'Noche';
+  readonly operador_id: string;
+  readonly maquina_id: string;
+  readonly producto_id: string;
+  readonly temperatura?: number;
+  readonly vibracion?: number;
+  readonly humedad?: number;
+  readonly tiempo_ciclo?: number;
+  readonly fallo_detectado: 'Sí' | 'No';
+  readonly tipo_fallo?: 'Mecánico' | 'Eléctrico' | 'Software' | 'Temperatura' | 'Otros';
+  readonly cantidad_producida: number;
+  readonly unidades_defectuosas: number;
+  readonly eficiencia_porcentual?: number;
+  readonly consumo_energia?: number;
+  readonly paradas_programadas: number;
+  readonly paradas_imprevistas: number;
+  readonly observaciones?: string;
 }
 
 export interface ChartData {
-  month: string;
-  produccion: number;
-  eficiencia: number;
-  fallos: number;
-  energia: number;
+  readonly month: string;
+  readonly produccion: number;
+  readonly eficiencia: number;
+  readonly fallos: number;
+  readonly energia: number;
 }
 
 export interface CategoryData {
-  name: string;
-  value: number;
-  color: string;
+  readonly name: string;
+  readonly value: number;
+  readonly color: string;
 }
 
 export interface MetricCard {
-  title: string;
-  value: string | number;
-  change: number;
-  icon: string;
+  readonly title: string;
+  readonly value: string | number;
+  readonly change: number;
+  readonly icon: string;
 }
 
 export interface EfficiencyData {
-  maquina: string;
-  eficiencia: number;
-  produccion: number;
+  readonly maquina: string;
+  readonly eficiencia: number;
+  readonly produccion: number;
 }
 
 export interface FailureData {
-  tipo: string;
-  cantidad: number;
-  porcentaje: number;
+  readonly tipo: string;
+  readonly cantidad: number;
+  readonly porcentaje: number;
 }

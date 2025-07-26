@@ -1,4 +1,3 @@
-import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 import type { CategoryData } from '../../types/dashboard';
 
@@ -7,10 +6,12 @@ interface PieChartComponentProps {
   title: string;
 }
 
-const PieChartComponent: React.FC<PieChartComponentProps> = ({ data, title }) => {
+const PieChartComponent = ({ data, title }: PieChartComponentProps) => {
   const RADIAN = Math.PI / 180;
   
-  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }: any) => {
+  const renderCustomizedLabel = ({ 
+    cx, cy, midAngle, innerRadius, outerRadius, percent 
+  }: any) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
